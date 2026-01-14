@@ -9,7 +9,8 @@ def calcula_imc():
 #cria a janela principal e funciona através da classe Tk
 janela = tk.Tk()
 #cria um frame dentro da janela principal, serve basicamente para encapsular outros widgets dentro dele
-frame = Frame(janela,padx=40,pady=40).grid(column=1,row=1) 
+frame = Frame(janela,padx=40,pady=40)
+frame.grid(column=1,row=1) 
 
 Label(frame,text='para saber seu IMC,digite os valores abaixo:',pady=40,font=('Arial',13)).grid(column=1,row=1,columnspan=2) 
 Label(frame,text = 'qual o seu peso em kg?',font=('Arial',13),anchor='w',width=30).grid(column=1,row=2)
@@ -26,11 +27,6 @@ resultado = Label (frame,font=('Arial',12))
 resultado.grid(column=1,row=5,columnspan=2)
 
 
-
-
-
-
-
-
 janela.title("Calculadora de IMC")
+
 janela.mainloop()
