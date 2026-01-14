@@ -4,7 +4,38 @@ from tkinter import Frame,Entry, Label,Button
 
 def calcula_imc():
     imc = float(peso.get()) / (float(altura.get()) ** 2)
-    resultado['text'] = f"o seu IMC eh {imc:.2f}"
+
+    # classificação por faixas
+    if imc < 18.5:
+        faixa = "abaixo do peso"
+    elif imc < 25:
+        faixa = "peso normal"
+    elif imc < 30:
+        faixa = "sobrepeso"
+    elif imc < 35:
+        faixa = "obesidade grau I"
+    elif imc < 40:
+        faixa = "obesidade grau II"
+    else:
+        faixa = "obesidade grau III"
+
+    # aqui usamos match para montar a mensagem
+    match faixa:
+        case "abaixo do peso":
+            mensagem = "Abaixo do peso"
+        case "peso normal":
+            mensagem = "Peso normal"
+        case "sobrepeso":
+            mensagem = "Sobrepeso"
+        case "obesidade grau I":
+            mensagem = "Obesidade grau I"
+        case "obesidade grau II":
+            mensagem = "Obesidade grau II"
+        case _:
+            mensagem = "Obesidade grau III"
+
+    resultado["text"] = f"Seu IMC é {imc:.2f}. Classificação: {mensagem}"
+
     
 #cria a janela principal e funciona através da classe Tk
 janela = tk.Tk()
@@ -26,7 +57,5 @@ Button(frame,text='calcular IMC',command=calcula_imc).grid(column=2,row=4)
 resultado = Label (frame,font=('Arial',12))
 resultado.grid(column=1,row=5,columnspan=2)
 
-
 janela.title("Calculadora de IMC")
-
 janela.mainloop()
