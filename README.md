@@ -33,10 +33,5 @@ ou clique duas vezes no arquivo se seu sistema permitir.
 - Python
 - Tkinter
 
-#  Observação
 
-O projeto é apenas para fins didáticos e prática de programação.
 
-3. Execute o arquivo:
-
-**
